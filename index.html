@@ -152,9 +152,11 @@
                 triggerPortal();
             }, { passive: true });
 
-            window.addEventListener("touchstart", () => {
+            window.addEventListener("touchstart", (e) => {
+                e.preventDefault();
                 ensureAmbientAudio();
-            }, { once: true, passive: true });
+                triggerPortal();
+            }, { passive: false });
 
             window.addEventListener("pointermove", () => {
                 ensureAmbientAudio();
